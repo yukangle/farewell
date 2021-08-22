@@ -1,0 +1,25 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #c8d6e5;
+}
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 30%;
+  left: 50%;
+  width: 60%;
+  height: auto;
+  transform: translate(-50%, 0);
+  padding: 20px;
+  /* text-align: center; */
+  align-items: center;
+  background-color:#00a8ff;
+  color: white;
+  border:1px solid #d0d0d0;
+  border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+}
