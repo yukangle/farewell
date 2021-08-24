@@ -1,0 +1,95 @@
+* {
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box
+}
+body {
+  padding:0;
+  margin:0;
+  background-color: #d2dae2;
+}
+#notfound {
+  position:relative;
+  height:100vh
+}
+#notfound .notfound {
+  position:absolute;
+  left:50%;
+  top:50%;
+  -webkit-transform:translate(-50%,-50%);
+  -ms-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%)
+}
+.notfound {
+  max-width:920px;
+  width:100%;
+  line-height:1.4;
+  text-align:center;
+  padding-left:15px;
+  padding-right:15px
+}
+.notfound .notfound-404 {
+  position:absolute;
+  height:100px;
+  top:0;
+  left:50%;
+  -webkit-transform:translateX(-50%);
+  -ms-transform:translateX(-50%);
+  transform:translateX(-50%);
+  z-index:-1
+}
+.notfound .notfound-404 h1 {
+  /* font-family:maven pro,sans-serif; */
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+
+  color:#a5b1c2;
+  font-weight:900;
+  font-size:276px;
+  margin:0;
+  position:absolute;
+  left:50%;
+  top:50%;
+  -webkit-transform:translate(-50%,-50%);
+  -ms-transform:translate(-50%,-50%);
+  transform:translate(-50%,-50%)
+}
+.notfound h2 {
+  /* font-family:maven pro,sans-serif; */
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+
+  font-size:46px;
+  color:#485460;
+  font-weight:900;
+  text-transform:uppercase;
+  margin:0
+} 
+
+.notfound a { 
+  /* font-family:maven pro,sans-serif; */
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+
+  font-size:14px;
+  text-decoration:none;
+  text-transform:uppercase;
+  background:#EA2027;
+  display:inline-block;
+  padding:10px 20px;
+  border:2px solid transparent;
+  border-radius:40px;
+  color:#fff;
+  font-weight:400;
+  -webkit-transition:.2s all;
+  transition:.2s all
+}
+.notfound a:hover {
+  background-color:#fff;
+  border-color:#EA2027;
+  color:#EA2027
+}
+@media only screen and (max-width:480px) {
+  .notfound .notfound-404 h1 {
+    font-size:162px
+  }
+  .notfound h2 {
+    font-size:26px
+  }
+}

@@ -1,25 +1,162 @@
 html, body {
   padding: 0;
   margin: 0;
+  /* font-family:maven pro,sans-serif; */
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 }
 
 body {
-  background-color: #c8d6e5;
+  background-color: #d2dae2;
 }
 
 .center {
   position: absolute;
   margin: auto;
-  top: 30%;
+  top: 20%;
   left: 50%;
-  width: 60%;
+  width: 50%;
   height: auto;
   transform: translate(-50%, 0);
-  padding: 20px;
-  /* text-align: center; */
+  padding: 40px;
   align-items: center;
-  background-color:#00a8ff;
-  color: white;
-  border:1px solid #d0d0d0;
-  border-radius:5px;-moz-border-radius:5px;-webkit-border-radius:5px;
+  color: #808e9b;
+}
+
+.access-btn {
+  fill: #54a0ff;
+}
+
+.header {
+  background-color: #0fbcf9;
+  color: #ffffff;
+  padding: 5px 20px;
+}
+
+.header a { 
+  text-decoration:none;
+  display:inline-block;
+  color:#fff;
+}
+.header a:hover {
+  background-color:transparent;
+  color: #d2dae2;
+}
+
+/* home page */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* html {
+  background-color: #f0f0f0;
+}
+body {
+  color: #999999;
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-font-feature-settings: "liga" on;
+} */
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.card-btn {
+  background-color: white;
+  border: 1px solid #cccccc;
+  color: #696969;
+  padding: 0.5rem;
+  text-transform: lowercase;
+}
+.card-btn--block {
+  display: block;
+  width: 100%;
+}
+
+.cards-container {
+  margin-top: 40px;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cards__item {
+  display: flex;
+  padding: 1rem;
+}
+@media (min-width: 40rem) {
+  .cards__item {
+    width: 50%;
+  }
+}
+@media (min-width: 56rem) {
+  .cards__item {
+    width: 33.3333%;
+  }
+}
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:hover .card__image {
+  filter: contrast(100%);
+}
+
+.card__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 1rem;
+}
+.card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  filter: contrast(70%);
+}
+.card__image::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+@media (min-width: 40rem) {
+  .card__image::before {
+    padding-top: 66.6%;
+  }
+}
+.card__image--bg {
+  background-image: url(/photos/WechatIMG13.jpeg);
+}
+.card__title {
+  color: #696969;
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.card__text {
+  flex: 1 1 auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
 }
