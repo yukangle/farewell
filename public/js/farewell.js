@@ -8,9 +8,43 @@ function getCookie(name)
 function appendCards(data) {
   var mainContainer = document.getElementById("cards");
   for (var i = 0; i < data.length; i++) {
-      var div = document.createElement("div");
-      div.innerHTML = 'Name: ' + data[i].username + ' ' + data[i].imageId;
-      mainContainer.appendChild(div);
+      var li = document.createElement("li");
+      li.className = "cards__item";
+      var cardDiv = document.createElement("div");
+      cardDiv.className = "card";
+      var imgDiv = document.createElement("div");
+      imgDiv.classList.add("card__image");
+      // imgDiv.classList.add("card__image--bg");
+      imgDiv.style.backgroundImage="url(/photos/" + data[i].imageId + ")";
+      var cntDiv = document.createElement("div");
+      cntDiv.className = "card__content"
+      var titleDiv = document.createElement("div");
+      titleDiv.className = "card__title";
+      var p = document.createElement("p");
+      p.className = "card__text";
+      // add text
+      var btn = document.createElement("button");
+      btn.classList.add("card-btn");
+      btn.classList.add("card-btn--block");
+      btn.classList.add("card__btn");
+
+      var iele = document.createElement("i");
+      iele.classList.add("fa");
+      iele.classList.add("fa-commenting-o");
+
+      titleDiv.textContent = 'Posted By ' + data[i].username + ' @ ' + data[i].date;
+      cntDiv.appendChild(titleDiv);
+      p.value = data[i].sentence;
+      cntDiv.appendChild(p);
+      btn.appendChild(iele);
+      cntDiv.appendChild(btn);
+
+      cardDiv.appendChild(imgDiv);
+      cardDiv.appendChild(cntDiv);
+
+      li.appendChild(cardDiv);
+
+      mainContainer.appendChild(li);
   }
 }
 
@@ -25,15 +59,15 @@ window.onload = function() {
   }
 };
 
-// fetch('/cards')
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     appendCards(data);
-//   })
-//   .catch(function (err) {
-//     console.log('error: ' + err);
-//   });
+fetch('/cards')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    appendCards(data);
+  })
+  .catch(function (err) {
+    console.log('error: ' + err);
+  });
 
     

@@ -120,7 +120,7 @@ app.post('/upload', async (req, res) => {
       } else {
         let photo = req.files.photo;
         var newCard = { "username": session.userid };
-        newCard.descritpion = req.body.sentence;
+        newCard.sentence = req.body.sentence;
         newCard.imageId = photo.name;
         newCard.date = (new Date(Date.now())).toDateString();
         newCard.id = uuid();
