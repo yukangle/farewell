@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
@@ -15,6 +16,12 @@ app.use(sessions({
   resave: false
 }));
 
+app.use(fileUpload({
+  createParentPath: true,
+    limits: { 
+        fileSize: 2 * 1024 * 1024 * 1024 //2MB max file(s) size
+    },
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -76,6 +83,32 @@ app.get('/cards', (req, res) => {
     }
   });
 });
+
+app.post('/upload', async (req, res) => {
+  try {
+    if (!req.files) {
+      res.send({
+        status: false,
+        message: 'no file uploaded'
+      });
+    } else {
+      let photo = req.files.photo;
+      photo.mv('./data/images/' + photo.name);
+
+      res.send({
+        status: true,
+        message: 'file is uploaded',
+        data: {
+          name: photo.name,
+          mimetype: photo.mimetype,
+          size: photo.size
+        }
+      });
+    }
+  } catch(err) {
+    res.status(500).send(err);
+  }
+})
 
 app.get('*', (req, res) => {
   console.log('unmatched route');
