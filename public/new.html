@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/font-awesome.min.css" type='text/css' media='all'>
   <link rel="stylesheet" href="css/styles.css">
 </head>
+  
 <body>
   <div>
     <div class="navbar fixed-top header">
@@ -18,32 +19,22 @@
         <i class="fa fa-user-circle" aria-hidden="true"></i>
       </div>
       <div>
-        <a class="new-card" href="/new"><i class="fa fa-upload" aria-hidden="true"></i> Create New Card</a>
         <a href='/logout'><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
       </div>
-      
     </div>
-    
-    <!-- <div id="cards">
-  
-    </div> -->
-
-    
-  <div class="cards-container">
-    <ul class="cards">
-      <li class="cards__item">
-        <div class="card">
-          <div class="card__image card__image--bg"></div>
-          <div class="card__content">
-            <div class="card__title">Posted By Tom Yu @ 08-24-2021</div>
-            <p class="card__text">Has been working with Rachel for more than 7 years, who gave me a lot of guidence and opportunities which made me better. Thanks Rachel for all the helps, hope her have a great journey next.</p>
-            <button class="card-btn card-btn--block card__btn"><i class="fa fa-commenting-o" aria-hidden="true"></i> Comments</button>
-          </div>
+    <div class="container card-upload">
+      <form action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <textarea class="form-control" name="sentence" id="sentence" rows="8" placeholder="Given your words to thank Rachel"></textarea>
         </div>
-      </li>
-    </ul>
-  </div>
-
+        <br/>
+        <div class="form-group">
+          <label for="photo">Photo you want to add in Card (***less than 2M for size)</label>
+          <input type="file" class="form-control-file" name="photo" id="photo">
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </form>
+    </div>
   </div>
   <!-- JavaScript Bundle with Popper -->
   <script src="js/bootstrap.min.js"></script>

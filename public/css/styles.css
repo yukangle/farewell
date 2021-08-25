@@ -44,10 +44,15 @@ body {
   text-decoration:none;
   display:inline-block;
   color:#fff;
+  padding-right: 10px;
 }
 .header a:hover {
   background-color:transparent;
   color: #d2dae2;
+}
+
+a.new-card {
+  color: #485460;
 }
 
 /* home page */
@@ -167,4 +172,9 @@ img {
   font-size: 0.875rem;
   line-height: 1.5;
   margin-bottom: 1.25rem;
+}
+
+
+.card-upload {
+  margin-top: 40px;
 }
