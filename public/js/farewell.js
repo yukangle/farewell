@@ -34,7 +34,7 @@ function appendCards(data) {
 
       titleDiv.textContent = 'Posted By ' + data[i].username + ' @ ' + data[i].date;
       cntDiv.appendChild(titleDiv);
-      p.value = data[i].sentence;
+      p.textContent = data[i].sentence;
       cntDiv.appendChild(p);
       btn.appendChild(iele);
       cntDiv.appendChild(btn);
