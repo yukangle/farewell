@@ -153,12 +153,18 @@ app.post('/upload', async (req, res) => {
   } catch(err) {
     res.status(500).send(err);
   }
-})
+});
 
 app.get('*', (req, res) => {
   console.log('unmatched route');
-  res.status(404).sendFile('public/404.html', { root: __dirname })
-})
+  session = req.session;
+  if (session.userid) {
+    res.cookie("username", session.userid);
+    res.status(301).sendFile('public/home.html', { root: __dirname });
+  } else {
+    res.sendFile('public/login.html', { root: __dirname });
+  }
+});
 
 var server = app.listen(8081, function() {
   var port = server.address().port;
