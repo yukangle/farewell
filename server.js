@@ -53,6 +53,7 @@ app.use(function (err, req, res, next) {
   res.status(500).sendFile('public/500.html')
 })
 
+/** Page redirection */
 app.get('/', (req, res) => {
   console.log('/');
   session = req.session;
@@ -91,6 +92,34 @@ app.get('/logout', (req, res) => {
   console.log('/logout');
   req.session.destroy();
   res.status(301).redirect('/');
+});
+
+app.get('/comments/:id', (req, res) => {
+  console.log('/comments/' + req.params.id);
+  session = req.session;
+  if (session.userid) {
+    res.cookie("id", req.params.id);
+    res.status(301).sendFile('public/card.html', { root: __dirname });
+  } else {
+    res.sendFile('public/login.html', { root: __dirname });
+  }
+});
+
+/** REST API */
+app.get('/card/:id', (req, res) => {
+  console.log('/card/' + req.params.id);
+  fs.readFile('data/data.json', 'utf8', (err, data) => {
+    if (err) {
+        console.log(`Error reading file from disk: ${err}`);
+        res.status(500).sendFile('public/500.html', { root: __dirname });
+    } else {
+
+        // parse JSON string to JSON object
+        const cards = JSON.parse(data);
+        const card = cards.filter(c => c.id == req.params.id);
+        res.status(200).json(card);
+    }
+  });
 });
 
 app.get('/cards', (req, res) => {
@@ -155,6 +184,7 @@ app.post('/upload', async (req, res) => {
   }
 });
 
+/** Fall Back */
 app.get('*', (req, res) => {
   console.log('unmatched route');
   session = req.session;

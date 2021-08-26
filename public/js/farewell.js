@@ -23,10 +23,13 @@ function appendCards(data) {
       var p = document.createElement("p");
       p.className = "card__text";
       // add text
-      var btn = document.createElement("button");
-      btn.classList.add("card-btn");
-      btn.classList.add("card-btn--block");
-      btn.classList.add("card__btn");
+      var alink = document.createElement("a");
+      var href = document.createAttribute("href");
+      href.value = "/comments/" + data[i].id;
+      alink.setAttributeNode(href);
+      alink.classList.add("card-btn");
+      alink.classList.add("card-btn--block");
+      alink.classList.add("card-btn-comment");
 
       var iele = document.createElement("i");
       iele.classList.add("fa");
@@ -36,8 +39,8 @@ function appendCards(data) {
       cntDiv.appendChild(titleDiv);
       p.textContent = data[i].sentence;
       cntDiv.appendChild(p);
-      btn.appendChild(iele);
-      cntDiv.appendChild(btn);
+      alink.appendChild(iele);
+      cntDiv.appendChild(alink);
 
       cardDiv.appendChild(imgDiv);
       cardDiv.appendChild(cntDiv);

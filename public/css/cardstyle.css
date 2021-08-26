@@ -1,0 +1,110 @@
+html, body {
+  padding: 0;
+  margin: 0;
+	background-color: #f1f2f6;
+}
+.icard-container {
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: rgba(0, 0, 0, 0.2) 0 4px 2px -2px;
+	font-family: "adelle-sans", sans-serif;
+	font-weight: 100;
+	margin: 10px auto;
+	width: 20rem;
+}
+@media screen and (min-width: 480px) {
+	.icard-container {
+			width: 28rem;
+	}
+}
+@media screen and (min-width: 767px) {
+	.icard-container {
+			width: 40rem;
+	}
+}
+@media screen and (min-width: 959px) {
+	.icard-container {
+			width: 50rem;
+	}
+}
+
+.icard-cover {
+	/* background: url("/photos/2021-08-20.jpg"); */
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 5px 5px 0 0;
+	height: 30rem;
+	box-shadow: inset rgba(0, 0, 0, 0.2) 0 64px 64px 16px;
+}
+
+.icard-body {
+	margin: 0 auto;
+	padding: 20px 10px;;
+	width: 100%;
+}
+
+.icard-summary p {
+	color: #4d4d4d;
+}
+
+.icard-footer {
+	margin: 10px;
+	padding-bottom: .125rem;
+	width: 90%;
+}
+.icard-footer ul {
+	list-style: none;
+	display: flex;
+	flex: row wrap;
+	justify-content: flex-end;
+	padding-left: 0;
+}
+.icard-footer li:first-child {
+	margin-right: auto;
+}
+.icard-footer li + li {
+	margin-left: .5rem;
+}
+.icard-footer li {
+	color: #999999;
+	font-size: .75rem;
+	height: 1.5rem;
+	letter-spacing: 1px;
+	line-height: 1.5rem;
+	text-align: center;
+	text-transform: uppercase;
+	position: relative;
+	white-space: nowrap;
+}
+.icard-footer li a {
+	color: #999999;
+}
+.published-date {
+	border: 1px solid #999999;
+	border-radius: 3px;
+	padding: 0 .5rem;
+}
+
+.back a { 
+  /* font-family:maven pro,sans-serif; */
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size:12px;
+  text-decoration:none;
+  text-transform:uppercase;
+  background:#EA2027;
+  display:inline-block;
+  padding:5px;
+	margin: 5px;
+  border:2px solid transparent;
+  border-radius:5px;
+  color:#fff;
+  /* font-weight:400; */
+  -webkit-transition:.2s all;
+  transition:.2s all
+}
+.back a:hover {
+  background-color:#fff;
+  border-color:#EA2027;
+  color:#EA2027
+}
