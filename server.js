@@ -15,8 +15,8 @@ function uuid() {
   for (var i = 0; i < 36; i++) {
       s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
   }
-  s[14] = "4"; // bits 12-15 of the time_hi_and_version field to 0010
-  s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1); // bits 6-7 of the clock_seq_hi_and_reserved to 01
+  s[14] = "4"; 
+  s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);
   s[8] = s[13] = s[18] = s[23] = "-";
 
   var uuid = s.join("");
@@ -40,7 +40,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//app.use(express.static('public'));
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/js', express.static(__dirname + '/public/js'));
 app.use('/imgs', express.static(__dirname + '/public/imgs'));
@@ -133,6 +132,18 @@ app.get('/cards', (req, res) => {
 
         // parse JSON string to JSON object
         const cards = JSON.parse(data);
+        cards.sort(function (a, b) {
+          var date1 = new Date(a.date);
+          var date2 = new Date(b.date);
+  
+          if (date1 > date2) {
+            return -1;
+          } else if (date1 < date2) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
         res.status(200).json(cards);
     }
   });
@@ -151,7 +162,7 @@ app.post('/upload', async (req, res) => {
         var newCard = { "username": session.userid };
         newCard.sentence = req.body.sentence;
         newCard.imageId = photo.name;
-        newCard.date = (new Date(Date.now())).toDateString();
+        newCard.date = (new Date(Date.now())).toLocaleString();
         newCard.id = uuid();
 
         fs.readFile('./data/data.json', 'utf8', (err, data) => {
@@ -177,6 +188,72 @@ app.post('/upload', async (req, res) => {
 
     } else {
       res.sendFile('public/login.html', { root: __dirname });
+    }
+    
+  } catch(err) {
+    res.status(500).send(err);
+  }
+});
+
+app.get('/allComments/:id', (req, res) => {
+  console.log('/allComments/' + req.params.id);
+  fs.readFile('data/comments.json', 'utf8', (err, data) => {
+
+    if (err) {
+        console.log(`Error reading file from disk: ${err}`);
+        res.status(500).json("failed to get comments");
+    } else {
+        var comments = JSON.parse(data);
+        comments = comments.filter(c => c.imageId === req.params.id);
+        comments.sort(function (a, b) {
+          var date1 = new Date(a.date);
+          var date2 = new Date(b.date);
+  
+          if (date1 > date2) {
+            return -1;
+          } else if (date1 < date2) {
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+
+        res.status(200).json(comments);
+    }
+  });
+});
+
+app.post('/comment/:id', (req, res) => {
+  try {
+    console.log('/comment' + req.params.id);
+    session = req.session;
+    imageId = req.params.id;
+    if (session.userid) {
+      res.cookie("username", session.userid);
+      var newComment = { "username": session.userid };
+      newComment.sentence = req.body.sentence;
+      newComment.imageId = imageId;
+      newComment.date = (new Date(Date.now())).toLocaleString();
+      newComment.id = uuid();
+
+      fs.readFile('./data/comments.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(`Error reading file from disk: ${err}`);
+            res.status(500).sendFile('public/500.html', { root: __dirname });
+        } else {
+            const databases = JSON.parse(data);
+            databases.push(newComment);
+            fs.writeFile('./data/comments.json', JSON.stringify(databases, null, 4), (err) => {
+                if (err) {
+                    console.log(`Error writing file: ${err}`);
+                    res.status(500).sendFile('public/500.html', { root: __dirname });
+                }
+            });
+        }
+      });
+      res.status(200).json({ result: "success" });
+    } else {
+      res.status(200).json({ result: "failed" });
     }
     
   } catch(err) {

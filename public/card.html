@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/css/cardstyle.css">
 </head>
 <body>
-	<div>
+	<div >
 		<div class="back">
 			<a href="/home"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back To List</a>
 		</div>
@@ -33,8 +33,28 @@
 			</div>
 		
 		</div>	
+
+		<div class="icard-container">
+			<div class="icard-body">
+				<div class="form-group">
+					<textarea class="form-control" name="sentence" id="sentence" rows="4"></textarea>
+					<p id="result" name="result" class="result-info"></p>
+				</div>
+				<br />
+				<button id="addComment" type="submit" class="btn btn-primary">Add Comment</button>
+			</div>
+		</div>
+
 	</div>
-			
-		<script src="/js/card.js"></script>
+
+	<div id="cards-container">
+
+	</div>
+
+	<div>
+		
+	</div>
+	<script src="/js/jquery-3.6.0.min.js"></script>
+	<script src="/js/card.js"></script>
 </body>
 </html>

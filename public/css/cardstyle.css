@@ -108,3 +108,9 @@ html, body {
   border-color:#EA2027;
   color:#EA2027
 }
+
+.result-info {
+	display: none;
+	color: red;
+	/* visibility: hidden; */
+}
