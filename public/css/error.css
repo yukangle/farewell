@@ -38,7 +38,6 @@ body {
   z-index:-1
 }
 .notfound .notfound-404 h1 {
-  /* font-family:maven pro,sans-serif; */
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 
   color:#a5b1c2;
@@ -53,7 +52,6 @@ body {
   transform:translate(-50%,-50%)
 }
 .notfound h2 {
-  /* font-family:maven pro,sans-serif; */
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 
   font-size:46px;
@@ -64,7 +62,6 @@ body {
 } 
 
 .notfound a { 
-  /* font-family:maven pro,sans-serif; */
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 
   font-size:14px;

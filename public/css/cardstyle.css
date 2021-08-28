@@ -87,7 +87,6 @@ html, body {
 }
 
 .back a { 
-  /* font-family:maven pro,sans-serif; */
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
   font-size:12px;
   text-decoration:none;
@@ -99,7 +98,6 @@ html, body {
   border:2px solid transparent;
   border-radius:5px;
   color:#fff;
-  /* font-weight:400; */
   -webkit-transition:.2s all;
   transition:.2s all
 }
@@ -112,5 +110,4 @@ html, body {
 .result-info {
 	display: none;
 	color: red;
-	/* visibility: hidden; */
 }

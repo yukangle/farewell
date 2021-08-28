@@ -14,7 +14,6 @@ function appendCards(data) {
       cardDiv.className = "card";
       var imgDiv = document.createElement("div");
       imgDiv.classList.add("card__image");
-      // imgDiv.classList.add("card__image--bg");
       imgDiv.style.backgroundImage="url(/photos/" + data[i].imageId + ")";
       var cntDiv = document.createElement("div");
       cntDiv.className = "card__content"
@@ -22,7 +21,6 @@ function appendCards(data) {
       titleDiv.className = "card__title";
       var p = document.createElement("p");
       p.className = "card__text";
-      // add text
       var alink = document.createElement("a");
       var href = document.createAttribute("href");
       href.value = "/comments/" + data[i].id;
