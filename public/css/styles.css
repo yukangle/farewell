@@ -61,21 +61,6 @@ a.new-card {
 *::after {
   box-sizing: border-box;
 }
-/* html {
-  background-color: #f0f0f0;
-}
-body {
-  color: #999999;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  letter-spacing: 0;
-  padding: 1rem;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
-} */
 img {
   height: auto;
   max-width: 100%;
@@ -160,9 +145,6 @@ img {
   .card__image::before {
     padding-top: 66.6%;
   }
-}
-.card__image--bg {
-  background-image: url(/photos/2021-08-20.jpg);
 }
 .card__title {
   color: #696969;
