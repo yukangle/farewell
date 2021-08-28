@@ -58,6 +58,21 @@ window.onload = function() {
   } else {
     currentUser.append('Anonymous')
   }
+
+  var exportBtn = document.getElementById("export");
+  if (exportBtn) {
+    exportBtn.onclick = function() {
+      const screenshotTarget = document.body;
+  
+      html2canvas(screenshotTarget).then((canvas) => {
+          var nWin = window.open();
+          nWin.document.open();
+          nWin.document.appendChild(canvas);
+          nWin.document.close();
+      });
+      return false;
+    };
+  }
 };
 
 fetch('/cards')

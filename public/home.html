@@ -11,24 +11,27 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-  <div>
-    <div class="navbar fixed-top header">
-      <div id="currentUser">
-        <i class="fa fa-user-circle" aria-hidden="true"></i>
-      </div>
-      <div>
-        <a class="new-card" href="/new"><i class="fa fa-upload" aria-hidden="true"></i> Create New Card</a>
-        <a href='/logout'><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-      </div>
-      
+  <div class="navbar fixed-top header">
+    <div id="currentUser">
+      <i class="fa fa-user-circle" aria-hidden="true"></i>
     </div>
+    <div>
+      <a id="export" class="new-card" href="#"><i class="fa fa-download" aria-hidden="true"></i> Export Screenshot</a>
+      <a class="new-card" href="/new"><i class="fa fa-upload" aria-hidden="true"></i> Create New Card</a>
+      <a href='/logout'><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+    </div>
+  </div>
+  <div id="mainContainer">
+    
     <div class="cards-container">
       <ul id="cards" class="cards">
       </ul>
     </div>
 
     </div>
+    <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/html2canvas.min.js"></script>
     <script src="/js/farewell.js"></script>
   </body>
 </html>

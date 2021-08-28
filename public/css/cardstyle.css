@@ -86,7 +86,7 @@ html, body {
 	padding: 0 .5rem;
 }
 
-.back a { 
+.top-btn { 
   font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
   font-size:12px;
   text-decoration:none;
@@ -101,10 +101,25 @@ html, body {
   -webkit-transition:.2s all;
   transition:.2s all
 }
-.back a:hover {
-  background-color:#fff;
+
+.back {
+	background: #EA2027;
+}
+
+.back:hover {
+	background-color:#fff;
   border-color:#EA2027;
   color:#EA2027
+}
+
+.export {
+	background: #2f3542;
+}
+
+.export:hover {
+	background-color:#fff;
+  border-color:#2f3542;
+  color:#2f3542
 }
 
 .result-info {
