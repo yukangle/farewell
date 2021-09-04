@@ -33,7 +33,7 @@ html, body {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	border-radius: 5px 5px 0 0;
+	/* border-radius: 5px 5px 0 0; */
 	height: 30rem;
 	box-shadow: inset rgba(0, 0, 0, 0.2) 0 64px 64px 16px;
 }
@@ -49,9 +49,10 @@ html, body {
 }
 
 .icard-footer {
-	margin: 10px;
 	padding-bottom: .125rem;
-	width: 90%;
+	width: 100%;
+	padding-left: 10px;
+	padding-right: 10px;;
 }
 .icard-footer ul {
 	list-style: none;
@@ -125,4 +126,14 @@ html, body {
 .result-info {
 	display: none;
 	color: red;
+}
+
+.main-header {
+	background-color: #f6f7fd;
+}
+.main-body {
+	background-color: #f6f7fd;
+}
+.main-footer {
+	background-color: #f6f7fd;
 }

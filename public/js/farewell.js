@@ -62,7 +62,7 @@ window.onload = function() {
   var exportBtn = document.getElementById("export");
   if (exportBtn) {
     exportBtn.onclick = function() {
-      const screenshotTarget = document.body;
+      const screenshotTarget = document.getElementById("mainContainer");
   
       html2canvas(screenshotTarget).then((canvas) => {
           var nWin = window.open();
